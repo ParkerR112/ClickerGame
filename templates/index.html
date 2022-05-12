@@ -1,19 +1,26 @@
-<!doctype html>
-
 <html>
+	
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
 	<body>
-		<button onclick="cookieClick(1)">Click Me!</button>
+		
+		Coins: <span id="coins">0</span>
+		Monsters: <span id="monsters">0</span>
+		Click Worth: <span id= "clickWorth">1</span>
 		<br />
-		Cookies: <span id="cookies">0</span>
+		<div class="container">
+			<div class="center">
+				<button onclick="Clicked()">Click Me!</button>
+			</div>
+		</div>
+		<button onclick="buyMonster()">Buy Monster</button>
 		<br />
-		<button onclick="buyCursor()">Buy Cursor</button>
+		Monster Cost: <span id="monsterCost">10</span>
 		<br />
-		Cursors: <span id="cursors">0</span>
+		<button onclick="upgradeClickWorth()">Upgrade Click Worth</button>
 		<br />
-		Cursor Cost: <span id="cursorCost">10</span>
+		Click Upgrade Cost: <span id="upgradeClickCost">11</span>
 		<script type="text/javascript" src="scripts.js"></script>
 	</body>
 </html>
