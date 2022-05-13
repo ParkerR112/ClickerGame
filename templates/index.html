@@ -1,13 +1,15 @@
 <html>
 	
 	<head>
-		<link rel="stylesheet" type="text/css" href="/static/styles.css" />
+		<title>Monster Clicker</title>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
 	<body>
 		
 		Coins: <span id="coins">0</span>
 		Monsters: <span id="monsters">0</span>
-		Click Worth: <span id= "clickWorth">1</span>
+		Click Worth: <span id="clickWorth">1</span>
+		Time Interval: <span id="timeInterval">1000</span> milliseconds
 		<br />
 		<div class="container">
 			<div class="center">
@@ -21,6 +23,10 @@
 		<button onclick="upgradeClickWorth()">Upgrade Click Worth</button>
 		<br />
 		Click Upgrade Cost: <span id="upgradeClickCost">11</span>
-		<script type="text/javascript" src="/static/scripts.js"></script>
+		<br />
+		<button onclick="upgradeTimeInterval()">Upgrade Time Interval</button>
+		<br />
+		Time Interval Upgrade Cost: <span id="intervalUpgradeCost">12</span>
+		<script type="text/javascript" src="scripts.js"></script>
 	</body>
 </html>

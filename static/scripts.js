@@ -1,6 +1,8 @@
 var coins = 0;
 var monsters = 0;
 var clickWorth = 1;
+var timeInterval = 1000;
+var tiun = 2;
 
 function Clicked(){
     coins = coins + clickWorth;
@@ -32,9 +34,22 @@ function upgradeClickWorth(){
     document.getElementById('upgradeClickCost').innerHTML = nextCost;
 };
 
+function upgradeTimeInterval(){
+    var upgradeIntervalCost = Math.floor(10 * Math.pow(1.1,tiun));
+    if (coins >= upgradeIntervalCost){
+        timeInterval = timeInterval - 10;
+        tiun = tiun + 1
+        coins = coins - upgradeIntervalCost;
+        document.getElementById('timeInterval').innerHTML = timeInterval;  
+        document.getElementById('coins').innerHTML = coins;  
+
+    };
+    var nextCost = Math.floor(10 * Math.pow(1.1,tiun));       
+    document.getElementById('intervalUpgradeCost').innerHTML = nextCost;
+};
 window.setInterval(function(){
 	
     coins = coins + monsters;
     document.getElementById("coins").innerHTML = coins;
 	
-}, 1000);
+}, timeInterval);
