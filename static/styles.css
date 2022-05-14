@@ -21,6 +21,13 @@ p {
   position: relative;
 }
 
+.upgrade {
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  width: 33%;
+}
+
 .center {
   margin: 0;
   position: absolute;
