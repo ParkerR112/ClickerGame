@@ -1,37 +1,57 @@
 var coins = 0;
-var monsters = 0;
-var clickWorth = 1;
+var pets = 0;
+var damage = 10;
 var timeInterval = 1000;
 var tiun = 2;
+var health = 200;
+var monsterLevel = 1;
+var monstersKilled = 0;
+
+var canvas = document.getElementById("healthBar");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(0, 0, 200, 10);
+
 
 function Clicked(){
-    coins = coins + clickWorth;
-    document.getElementById("coins").innerHTML = coins;
+    health -= damage * 2;
+    document.getElementById("healthBar").style.color="#00000";
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, 200, 10);
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(0, 0, health, 10);
+    if (health <= 0) {
+        health = 200;
+        coins = coins + (monsterLevel * 10);
+        document.getElementById("coins").innerHTML = coins;
+        monstersKilled += 1;
+        document.getElementById("monstersKilled").innerHTML = monstersKilled;
+    };
 };
 
-function buyMonster(){
-    var monsterCost = Math.floor(10 * Math.pow(1.1,monsters));     
-    if(coins >= monsterCost){                                   
-        monsters = monsters + 1;                                   
-    	coins = coins - monsterCost;                          
-        document.getElementById('monsters').innerHTML = monsters;  
+function buyPet(){
+    var petCost = Math.floor(10 * Math.pow(1.1,pets));     
+    if(coins >= petCost){                                   
+        pets = pets + 1;                                   
+    	coins = coins - petCost;                          
+        document.getElementById('pets').innerHTML = pets;  
         document.getElementById('coins').innerHTML = coins;  
     };
-    var nextCost = Math.floor(10 * Math.pow(1.1,monsters));       
-    document.getElementById('monsterCost').innerHTML = nextCost;  
+    var nextCost = Math.floor(10 * Math.pow(1.1,pets));       
+    document.getElementById('petCost').innerHTML = nextCost;  
 };
 
-function upgradeClickWorth(){
-    var upgradeClickCost = Math.floor(10 * Math.pow(1.1,clickWorth));
-    if (coins >= upgradeClickCost){
-        clickWorth = clickWorth + 1;
-        coins = coins - upgradeClickCost;
-        document.getElementById('clickWorth').innerHTML = clickWorth;  
+function upgradeDamage(){
+    var upgradeDamageCost = Math.floor(10 * Math.pow(1.1,damage - 10));
+    if (coins >= upgradeDamageCost){
+        damage += 1;
+        coins = coins - upgradeDamageCost;
+        document.getElementById('damage').innerHTML = damage;  
         document.getElementById('coins').innerHTML = coins;  
 
     };
-    var nextCost = Math.floor(10 * Math.pow(1.1,clickWorth));       
-    document.getElementById('upgradeClickCost').innerHTML = nextCost;
+    var nextCost = Math.floor(10 * Math.pow(1.1,damage - 10));       
+    document.getElementById('upgradeDamageCost').innerHTML = nextCost;
 };
 
 function upgradeTimeInterval(){
@@ -47,9 +67,25 @@ function upgradeTimeInterval(){
     var nextCost = Math.floor(10 * Math.pow(1.1,tiun));       
     document.getElementById('intervalUpgradeCost').innerHTML = nextCost;
 };
+
 window.setInterval(function(){
 	
-    coins = coins + monsters;
-    document.getElementById("coins").innerHTML = coins;
-	
+    health -= pets * 2;
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, 200, 10);
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(0, 0, health, 10);
+	if (health <= 0) {
+        health = 200;
+        coins = coins + (monsterLevel * 10);
+        document.getElementById("coins").innerHTML = coins;
+        monstersKilled += 1;
+        document.getElementById("monstersKilled").innerHTML = monstersKilled;
+    };
+    if (monstersKilled >= 10) {
+    monsterLevel += 1;
+    monstersKilled = 0;
+    document.getElementById("level").innerHTML = monsterLevel;
+    };
 }, timeInterval);
+
