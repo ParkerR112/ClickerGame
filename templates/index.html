@@ -7,26 +7,36 @@
 	<body>
 		
 		Coins: <span id="coins">0</span>
-		Monsters: <span id="monsters">0</span>
-		Click Worth: <span id="clickWorth">1</span>
-		Time Interval: <span id="timeInterval">1000</span> milliseconds
 		<br />
+		Pets: <span id="pets">0</span>
+		<br />
+		Damage Per Click: <span id="damage">10</span>
+		<br />
+		Pet Attack Speed: <span id="timeInterval">1000</span> milliseconds
 		<div class="container">
 			<div class="center">
-				<button onclick="Clicked()">Click Me!</button>
+				Level: <span id="level">1</span>
+				<br />
+				<canvas id="healthBar" width="200" height="10" style="border:1px solid #000000;"></canvas>
 			</div>
 		</div>
-		<button onclick="buyMonster()">Buy Monster</button>
+		<div class="container">
+			<div class="center">
+				<button onclick="Clicked()">ATTACK</button>
+			</div>
+		</div>
+		<button onclick="buyPet()">Buy Pet</button>
 		<br />
-		Monster Cost: <span id="monsterCost">10</span>
+		Pet Cost: <span id="petCost">10</span>
 		<br />
-		<button onclick="upgradeClickWorth()">Upgrade Click Worth</button>
+		<button onclick="upgradeDamage()">Upgrade Damage</button>
 		<br />
-		Click Upgrade Cost: <span id="upgradeClickCost">11</span>
+		Damage Upgrade Cost: <span id="upgradeDamageCost">10</span>
 		<br />
-		<button onclick="upgradeTimeInterval()">Upgrade Time Interval</button>
+		<button onclick="upgradeTimeInterval()">Upgrade Attack Speed</button>
 		<br />
-		Time Interval Upgrade Cost: <span id="intervalUpgradeCost">12</span>
+		Attack Speed Upgrade Cost: <span id="intervalUpgradeCost">12</span>
+		<br />
 		<script type="text/javascript" src="/static/scripts.js"></script>
 	</body>
 </html>
